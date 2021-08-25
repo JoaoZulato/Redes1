@@ -1,11 +1,12 @@
 import socket
 import threading
 
-ServerIP = input("Server IP: ")
-PORT = int(input("Port: "))
+print("*********Bem vindo ao JOMA chat**********")
+ServerIP = input("Endereço do servidor:: ")
+PORT = int(input("Porta: "))
 
 client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-try:
+try: 
     username = input('Nome de usuario: ')
     client.connect((ServerIP,PORT))
     print(f'Conectado a {ServerIP}:{PORT}')
