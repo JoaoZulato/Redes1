@@ -14,7 +14,8 @@ except:
     print(f' {ServerIP}:{PORT} Algum dos elementos nao esta certo')
 
 def Mensagem():
-    while True:
+    teste=True
+    while teste==True:
         try:
             message = client.recv(2048).decode('ascii')
             if message=='getUser':
@@ -22,7 +23,8 @@ def Mensagem():
             else:
                 print(message)
         except:
-            print('Erro, servidor offline')
+            print('Erro, servidor offline ou dados incorretos')
+            teste=False
 
 def mandaMensagem():
     while True:
