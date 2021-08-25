@@ -15,16 +15,16 @@ print(f'Servidor ligado e escutando \nendereço: {HOST}\nporta: {PORT}')
 clients = []
 usernames = []
 
-def globalMessage(message,compara):
+def globalMessage(message):
     for client in clients:
         client.send(message)
 
 def handleMessages(client):
     while True:
         try:
-            receiveMessageFromClient = client.recv(2048).decode('ascii')            
-            globalMessage(f'{usernames[clients.index(client)]}: {receiveMessageFromClient}'.encode('ascii'))
+            receiveMessageFromClient = client.recv(2048).decode('ascii')
             
+            globalMessage(f'{usernames[clients.index(client)]}: {receiveMessageFromClient}'.encode('ascii'))
         except:
             clientLeaved = clients.index(client)
             client.close()
